@@ -103,6 +103,8 @@ class Estim(Thread):
 
 
         self.get_status(force_update=True)
+        if(dryrun):
+            self.status['firmware']="2.120B"
         config_path = f"{str(Path(__file__).parent)}/config/"
         specific_config = config_path + f"config_{self.status['firmware']}.yaml"
         if Path(specific_config).is_file():
@@ -135,7 +137,7 @@ class Estim(Thread):
     def _recv(self):
         time.sleep(self.delay)
         if self.dryrun:
-            reply_string = "512:66:00:50:50:1:L:0:0"
+            reply_string = "512:66:00:50:50:1:L:0:0".encode()
         else:
             reply_string = self.serialconn.readline()
         logging.debug(f"Received: {reply_string}")
