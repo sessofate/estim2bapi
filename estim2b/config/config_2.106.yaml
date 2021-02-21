@@ -1,0 +1,16 @@
+# maps mode names to number
+pulse: 0
+bounce: 1
+continuous: 2
+asplit: 3
+bsplit: 4
+wave: 5
+waterfall: 6
+squeeze: 7
+milk: 8
+throb: 9
+thrust: 10
+random: 11
+step: 12
+training: 13
+
