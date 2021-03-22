@@ -177,7 +177,7 @@ class Estim(Thread):
     def _send(self, send_string):
         logging.debug(f"{send_string}")
         if self.dryrun:
-            print(f"_send:{send_string}")
+            logging.info(f"dryrun _send:{send_string}")
         else:
             command = send_string + "\n\r"
             self.serialconn.write(command.encode())
