@@ -252,7 +252,7 @@ class Estim(Thread):
             self.kill(block=True)
         self._queue_command("stop")
 
-    def set_output(self, channel, value, block=True):
+    def set_output(self, channel, value, block=False):
         # check the channel is valid
         if not channel in self.channel_ranges.keys():
             logging.error(f"{channel} is not a valid channel.")
@@ -265,7 +265,7 @@ class Estim(Thread):
             return False
         return self._queue_command(f"{channel}{value}", block)
 
-    def set_mode(self, mode_str, block=True):
+    def set_mode(self, mode_str, block=False):
         if not mode_str in self.modes.keys():
             logging.error(f"{mode_str} is not a valid mode.")
             return False
