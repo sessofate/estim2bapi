@@ -103,8 +103,8 @@ def rampAB(e2b, start_level_A, end_level_A, start_level_B, end_level_B, duration
     # time better move forward or we are infinitely messing with this
     assert(dt > 0.0)
     while current_time <= duration_total:
-        e2b.set_output("A", np.floor(level_A))
-        e2b.set_output("B", np.floor(level_B))
+        e2b.set_output("A", np.round(level_A))
+        e2b.set_output("B", np.round(level_B))
         e2b.wait(dt, block=block)
         current_time = current_time + dt
         level_A = level_A + dx_A
